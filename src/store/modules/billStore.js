@@ -20,6 +20,12 @@ const getBillList=()=>{
     dispatch(setBillList(re.data))
   }
 }
-export{getBillList}
+const addBillList=(data)=>{
+  return async(dispatch)=>{
+    const re=await axios.post('http://localhost:8888/ka',data)
+    dispatch(setBillList(re.data))
+  }
+}
+export{getBillList,addBillList}
 const billStoreReducer=billStore.reducer
 export default billStoreReducer
